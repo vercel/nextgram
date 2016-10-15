@@ -1,0 +1,12 @@
+{
+  "name": "nextgram",
+  "private": true,
+  "dependencies": {
+    "next": "latest"
+  },
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  }
+}
