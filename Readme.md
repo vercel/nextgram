@@ -4,7 +4,7 @@
 Sample [next](https://github.com/zeit/next.js) app that takes advantage of the
 routing capabilities
 
-![NextGram](https://i.imgur.com/73nAzYA.gif)
+![NextGram](https://i.imgur.com/KF0KExk.gif)
 
 
 # Installation
