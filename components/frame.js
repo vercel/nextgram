@@ -1,15 +1,15 @@
 import React from 'react'
 import Link from 'next/link'
-import { css, StyleSheet } from 'next/css'
+import { style } from 'next/css'
 
 export default ({ id }) => (
-  <div className={css(styles.photo)}>
-    <div className={css(styles.image)}>
+  <div className={style(styles.photo)}>
+    <div className={style(styles.image)}>
       {id}
     </div>
 
-    <div className={css(styles.sidebar)}>
-      <ul className={css(styles.sidebarList)}>
+    <div className={style(styles.sidebar)}>
+      <ul className={style(styles.sidebarList)}>
         <li>
           <Link href="/profile?id=nkzawa">@nkzawa</Link>
           - Great photo!
@@ -19,7 +19,7 @@ export default ({ id }) => (
   </div>
 )
 
-const styles = StyleSheet.create({
+const styles = {
   photo: {
     width: '800px',
     overflow: 'hidden',
@@ -56,4 +56,4 @@ const styles = StyleSheet.create({
     margin: 0,
     padding: 0,
   }
-})
+}

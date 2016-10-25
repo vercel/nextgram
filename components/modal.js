@@ -1,6 +1,6 @@
 import React from 'react'
 import Photo from './frame'
-import { css, StyleSheet } from 'next/css'
+import { style } from 'next/css'
 
 export default class extends React.Component {
   dismiss (e) {
@@ -14,8 +14,8 @@ export default class extends React.Component {
 
   render () {
     return (
-      <div className={css(styles.shim)} ref="shim" onClick={(e) => this.dismiss(e)}>
-        <div ref="photoWrap" className={css(styles.photo)}>
+      <div className={style(styles.shim)} ref="shim" onClick={(e) => this.dismiss(e)}>
+        <div ref="photoWrap" className={style(styles.photo)}>
           <Photo id={this.props.id} />
         </div>
       </div>
@@ -23,7 +23,7 @@ export default class extends React.Component {
   }
 }
 
-const styles = StyleSheet.create({
+const styles = {
   shim: {
     position: 'fixed',
     background: 'rgba(0,0,0,.65)',
@@ -40,4 +40,4 @@ const styles = StyleSheet.create({
     width: '100%',
     marginTop: '-250px'
   }
-})
+}

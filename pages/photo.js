@@ -1,16 +1,16 @@
 import React from 'react'
 import Photo from '../components/frame'
-import { css, StyleSheet } from 'next/css'
+import { style } from 'next/css'
 
 export default ({ url: { query: { id } } }) => (
-  <div className={css(styles.permalink)}>
-    <div className={css(styles.wrap)}>
+  <div className={style(styles.permalink)}>
+    <div className={style(styles.wrap)}>
       <Photo id={id} />
     </div>
   </div>
 )
 
-const styles = StyleSheet.create({
+const styles = {
   permalink: {
     padding: '100px',
     textAlign: 'center'
@@ -21,4 +21,4 @@ const styles = StyleSheet.create({
     border: '1px solid #999',
     margin: 'auto'
   }
-})
+}
