@@ -1,6 +1,6 @@
 import React from 'react'
 import Modal from '../components/modal'
-import { css, StyleSheet } from 'next/css'
+import { style } from 'next/css'
 
 export default class extends React.Component {
   static getInitialProps () {
@@ -40,7 +40,7 @@ export default class extends React.Component {
 
   render () {
     return (
-      <div className={css(styles.list)}>
+      <div className={style(styles.list)}>
         {
           this.props.url.query.id &&
             <Modal
@@ -50,8 +50,8 @@ export default class extends React.Component {
         }
         {
           this.props.photos.map((id) => (
-            <div key={id} className={css(styles.photo)}>
-              <a className={css(styles.photoLink)} onClick={() => this.showPhoto(id) }>
+            <div key={id} className={style(styles.photo)}>
+              <a className={style(styles.photoLink)} onClick={() => this.showPhoto(id) }>
                 {id}
               </a>
             </div>
@@ -62,7 +62,7 @@ export default class extends React.Component {
   }
 }
 
-const styles = StyleSheet.create({
+const styles = {
   list: {
     padding: '50px',
     textAlign: 'center'
@@ -87,4 +87,4 @@ const styles = StyleSheet.create({
       borderColor: 'blue'
     }
   }
-})
+}

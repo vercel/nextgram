@@ -1,17 +1,17 @@
 import React from 'react'
-import { css, StyleSheet } from 'next/css'
+import { style } from 'next/css'
 
 export default ({ url: { query: { id } } }) => (
-  <div className={css(styles.main)}>
-    <h1 className={css(styles.heading)}>
+  <div className={style(styles.main)}>
+    <h1 className={style(styles.heading)}>
       User profile:
       {' '}
-      <b className={css(styles.username)}>{id}</b>
+      <b className={style(styles.username)}>{id}</b>
     </h1>
   </div>
 )
 
-const styles = StyleSheet.create({
+const styles = {
   main: {
     padding: '100px'
   },
@@ -23,4 +23,4 @@ const styles = StyleSheet.create({
   username: {
     color: 'blue'
   }
-})
+}
