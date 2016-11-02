@@ -4,8 +4,8 @@ import { style } from 'next/css'
 
 export default class extends React.Component {
   dismiss (e) {
-    if (this.refs.shim === e.target
-      || this.refs.photoWrap === e.target) {
+    if (this._shim === e.target
+      || this._photoWrap === e.target) {
       if (this.props.onDismiss) {
         this.props.onDismiss();
       }
@@ -14,8 +14,8 @@ export default class extends React.Component {
 
   render () {
     return (
-      <div className={style(styles.shim)} ref="shim" onClick={(e) => this.dismiss(e)}>
-        <div ref="photoWrap" className={style(styles.photo)}>
+      <div ref={(el) => this._shim = el} className={style(styles.shim)} onClick={(e) => this.dismiss(e)}>
+        <div ref={(el) => this._photoWrap = el} className={style(styles.photo)}>
           <Photo id={this.props.id} />
         </div>
       </div>
