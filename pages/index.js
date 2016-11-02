@@ -34,7 +34,8 @@ export default class extends React.Component {
     this.props.url.back()
   }
 
-  showPhoto (id) {
+  showPhoto (e, id) {
+    e.preventDefault()
     this.props.url.push('/photo?id=' + id)
   }
 
@@ -51,7 +52,10 @@ export default class extends React.Component {
         {
           this.props.photos.map((id) => (
             <div key={id} className={style(styles.photo)}>
-              <a className={style(styles.photoLink)} onClick={() => this.showPhoto(id) }>
+              <a
+                className={style(styles.photoLink)}
+                href={'/photo?id=' + id}
+                onClick={(e) => this.showPhoto(e, id) }>
                 {id}
               </a>
             </div>
