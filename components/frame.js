@@ -11,7 +11,7 @@ export default ({ id }) => (
     <div className={style(styles.sidebar)}>
       <ul className={style(styles.sidebarList)}>
         <li>
-          <Link href="/profile?id=nkzawa">@nkzawa</Link>
+          <Link href='/profile?id=nkzawa'>@nkzawa</Link>
           - Great photo!
         </li>
       </ul>
@@ -54,6 +54,6 @@ const styles = {
   sidebarList: {
     listStyleType: 'none',
     margin: 0,
-    padding: 0,
+    padding: 0
   }
 }

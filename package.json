@@ -2,11 +2,17 @@
   "name": "nextgram",
   "private": true,
   "dependencies": {
-    "next": "latest"
+    "next": "latest",
+    "standard": "8.4.0",
+    "babel-eslint": "7.0.0"
+  },
+  "standard": {
+     "parser": "babel-eslint"
   },
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "standard"
   }
 }

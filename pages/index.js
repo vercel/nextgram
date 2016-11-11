@@ -6,7 +6,7 @@ export default class extends React.Component {
   static getInitialProps () {
     return {
       // dummy data
-      photos: new Array(15).fill(0).map((v,k)=>k+1)
+      photos: new Array(15).fill(0).map((v, k) => k + 1)
     }
   }
 
@@ -25,7 +25,7 @@ export default class extends React.Component {
 
   onKeyDown (e) {
     if (!this.props.url.query.id) return
-    if (27 === e.keyCode) {
+    if (e.keyCode === 27) {
       this.props.url.back()
     }
   }
@@ -46,7 +46,7 @@ export default class extends React.Component {
           this.props.url.query.id &&
             <Modal
               id={this.props.url.query.id}
-              onDismiss={ () => this.dismissModal() }
+              onDismiss={() => this.dismissModal()}
             />
         }
         {
@@ -55,7 +55,7 @@ export default class extends React.Component {
               <a
                 className={style(styles.photoLink)}
                 href={'/photo?id=' + id}
-                onClick={(e) => this.showPhoto(e, id) }>
+                onClick={(e) => this.showPhoto(e, id)}>
                 {id}
               </a>
             </div>
