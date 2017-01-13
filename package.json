@@ -2,7 +2,7 @@
   "name": "nextgram",
   "private": true,
   "dependencies": {
-    "next": "^2.0.0-beta",
+    "next": "^2.0.0-beta"
   },
   "devDependencies": {
     "babel-eslint": "7.0.0",
