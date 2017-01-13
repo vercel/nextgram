@@ -1,11 +1,12 @@
 import React from 'react'
-import Modal from '../components/modal'
+import Router from 'next/router'
 import { style } from 'next/css'
+
+import Modal from '../components/modal'
 
 export default class extends React.Component {
   static getInitialProps () {
     return {
-      // dummy data
       photos: new Array(15).fill(0).map((v, k) => k + 1)
     }
   }
@@ -15,6 +16,7 @@ export default class extends React.Component {
     this.onKeyDown = this.onKeyDown.bind(this)
   }
 
+  // handling espace close
   componentDidMount () {
     document.addEventListener('keydown', this.onKeyDown)
   }
@@ -24,38 +26,41 @@ export default class extends React.Component {
   }
 
   onKeyDown (e) {
-    if (!this.props.url.query.id) return
+    if (!this.props.url.query.photoId) return
     if (e.keyCode === 27) {
       this.props.url.back()
     }
   }
 
   dismissModal () {
-    this.props.url.back()
+    Router.push('/')
   }
 
   showPhoto (e, id) {
     e.preventDefault()
-    this.props.url.push('/photo?id=' + id)
+    Router.push(`/?photoId=${id}`, `/photo?id=${id}`)
   }
 
   render () {
+    const { url, photos } = this.props
+
     return (
       <div className={style(styles.list)}>
         {
-          this.props.url.query.id &&
+          url.query.photoId &&
             <Modal
-              id={this.props.url.query.id}
+              id={url.query.photoId}
               onDismiss={() => this.dismissModal()}
             />
         }
         {
-          this.props.photos.map((id) => (
+          photos.map((id) => (
             <div key={id} className={style(styles.photo)}>
               <a
                 className={style(styles.photoLink)}
-                href={'/photo?id=' + id}
-                onClick={(e) => this.showPhoto(e, id)}>
+                href={`/photo?id=${id}`}
+                onClick={(e) => this.showPhoto(e, id)}
+              >
                 {id}
               </a>
             </div>
