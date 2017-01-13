@@ -1,6 +1,5 @@
 import React from 'react'
 import Router from 'next/router'
-import { style } from 'next/css'
 
 import Modal from '../components/modal'
 
@@ -45,7 +44,7 @@ export default class extends React.Component {
     const { url, photos } = this.props
 
     return (
-      <div className={style(styles.list)}>
+      <div className='list'>
         {
           url.query.photoId &&
             <Modal
@@ -55,9 +54,9 @@ export default class extends React.Component {
         }
         {
           photos.map((id) => (
-            <div key={id} className={style(styles.photo)}>
+            <div key={id} className='photo'>
               <a
-                className={style(styles.photoLink)}
+                className='photoLink'
                 href={`/photo?id=${id}`}
                 onClick={(e) => this.showPhoto(e, id)}
               >
@@ -66,34 +65,34 @@ export default class extends React.Component {
             </div>
           ))
         }
+        <style jsx>{`
+          .list {
+            padding: 50px;
+            text-align: center;
+          }
+
+          .photo {
+            display: inline-block;
+          }
+
+          .photoLink {
+            color: #333;
+            verticalAlign: middle;
+            cursor: pointer;
+            background: #eee;
+            display: inline-block;
+            width: 250px;
+            height: 250px;
+            line-height: 250px;
+            margin: 10px;
+            border: 2px solid transparent;
+          }
+
+          .photoLink:hover {
+            borderColor: blue;
+          }
+        `}</style>
       </div>
     )
-  }
-}
-
-const styles = {
-  list: {
-    padding: '50px',
-    textAlign: 'center'
-  },
-
-  photo: {
-    display: 'inline-block'
-  },
-
-  photoLink: {
-    color: '#333',
-    verticalAlign: 'middle',
-    cursor: 'pointer',
-    background: '#eee',
-    display: 'inline-block',
-    width: '250px',
-    height: '250px',
-    lineHeight: '250px',
-    margin: '10px',
-    border: '2px solid transparent',
-    ':hover': {
-      borderColor: 'blue'
-    }
   }
 }
