@@ -15,7 +15,7 @@ export default class extends React.Component {
     this.onKeyDown = this.onKeyDown.bind(this)
   }
 
-  // handling espace close
+  // handling escape close
   componentDidMount () {
     document.addEventListener('keydown', this.onKeyDown)
   }
