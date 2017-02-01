@@ -10,7 +10,7 @@ export default ({ id }) => (
     <div className='sidebar'>
       <ul className='sidebarList'>
         <li>
-          <Link href='/profile?id=nkzawa'>@nkzawa</Link>
+          <Link><a href='/profile?id=nkzawa'>@nkzawa</a></Link>
           - Great photo!
         </li>
       </ul>
