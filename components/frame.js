@@ -8,7 +8,7 @@ class RandomDescription extends React.Component {
   }
 
   componentDidMount() {
-    fetch('http://api.icndb.com/jokes/random')
+    fetch('https://api.icndb.com/jokes/random')
       .then((res) => res.json())
       .then((result) => {
         this.setState({
