@@ -19,28 +19,32 @@ export default ({ id }) => (
     <style jsx>{`
       .photo {
         width: 800px;
+        max-height: 600px;
         overflow: hidden;
-        height: 500px;
         display: inline-block;
+        background-color: #fff;
       }
 
       .image {
         float: left;
         width: 600px;
-        height: 500px;
-        background: #333;
         color: #fff;
         text-align: center;
         vertical-align: middle;
-        line-height: 500px;
         font-size: 40px;
+      }
+
+      .image img {
+        padding: 0;
+        margin: 0;
+        width: 600px;
       }
 
       .sidebar {
         float: right;
         background: #fff;
         width: 200px;
-        height: 500px;
+        height: 100%;
         text-align: left;
         box-sizing: border-box;
         padding: 20px;
