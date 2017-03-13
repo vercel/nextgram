@@ -37,7 +37,7 @@ export default class extends React.Component {
 
   showPhoto (e, id) {
     e.preventDefault()
-    Router.push(`/?photoId=${id}`, `/photo?id=${id}`)
+    Router.push(`/?photoId=${id}`, `/photo?id=${id}`, { shallow: true })
   }
 
   render () {
