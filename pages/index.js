@@ -6,7 +6,7 @@ import 'isomorphic-fetch'
 export default class extends React.Component {
   static async getInitialProps () {
     return {
-      photos: await getGithubProfileIds()
+      photos: await getGifNames(),
     }
   }
 
@@ -32,7 +32,7 @@ export default class extends React.Component {
   }
 
   dismissModal () {
-    Router.push('/')
+    Router.push('/', '/', { shallow: true })
   }
 
   showPhoto (e, id) {
@@ -60,7 +60,7 @@ export default class extends React.Component {
                 href={`/photo?id=${id}`}
                 onClick={(e) => this.showPhoto(e, id)}
               >
-                <img src={`https://avatars0.githubusercontent.com/u/${id}?v=3&s=250`} />
+                <img src={`https://thumbs.gfycat.com/${id}-thumb360.jpg`} />
               </a>
             </div>
           ))
@@ -82,8 +82,8 @@ export default class extends React.Component {
             background: #eee;
             display: inline-block;
             width: 250px;
-            height: 250px;
-            line-height: 250px;
+            height: 120px;
+            line-height: 120px;
             margin: 10px;
             border: 2px solid transparent;
           }
@@ -106,4 +106,11 @@ async function getGithubProfileIds() {
   const res = await fetch('https://api.github.com/users')
   const result = await res.json()
   return result.map((info) => info.id)
+}
+
+async function getGifNames() {
+  const res = await fetch('https://api.gfycat.com/v1/gfycats/trending?count=20')
+  const result = await res.json()
+
+  return result.gfycats.map((info) => info.gfyName)
 }
