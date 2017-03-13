@@ -1,12 +1,12 @@
 import React from 'react'
 import Router from 'next/router'
-
 import Modal from '../components/modal'
+import 'isomorphic-fetch'
 
 export default class extends React.Component {
-  static getInitialProps () {
+  static async getInitialProps () {
     return {
-      photos: new Array(15).fill(0).map((v, k) => k + 1)
+      photos: await getGithubProfileIds()
     }
   }
 
@@ -60,7 +60,7 @@ export default class extends React.Component {
                 href={`/photo?id=${id}`}
                 onClick={(e) => this.showPhoto(e, id)}
               >
-                {id}
+                <img src={`https://avatars0.githubusercontent.com/u/${id}?v=3&s=250`} />
               </a>
             </div>
           ))
@@ -88,6 +88,10 @@ export default class extends React.Component {
             border: 2px solid transparent;
           }
 
+          .photoLink img {
+            width: 250px;
+          }
+
           .photoLink:hover {
             borderColor: blue;
           }
@@ -95,4 +99,11 @@ export default class extends React.Component {
       </div>
     )
   }
+}
+
+
+async function getGithubProfileIds() {
+  const res = await fetch('https://api.github.com/users')
+  const result = await res.json()
+  return result.map((info) => info.id)
 }

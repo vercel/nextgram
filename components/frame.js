@@ -4,7 +4,7 @@ import Link from 'next/link'
 export default ({ id }) => (
   <div className='photo'>
     <div className='image'>
-      {id}
+      <img src={`https://avatars0.githubusercontent.com/u/${id}?v=3&s=600`} />
     </div>
 
     <div className='sidebar'>
@@ -34,6 +34,10 @@ export default ({ id }) => (
         vertical-align: middle;
         line-height: 500px;
         font-size: 40px;
+      }
+
+      .image img {
+        width: 600px;
       }
 
       .sidebar {
