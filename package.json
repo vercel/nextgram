@@ -2,6 +2,7 @@
   "name": "nextgram",
   "private": true,
   "dependencies": {
+    "express": "^4.15.2",
     "isomorphic-fetch": "^2.2.1",
     "next": "^2.0.0-beta.36",
     "react": "^15.4.2",
@@ -15,9 +16,9 @@
     "parser": "babel-eslint"
   },
   "scripts": {
-    "dev": "next",
+    "dev": "node server",
     "build": "next build",
-    "start": "NODE_ENV=production next start",
+    "start": "NODE_ENV=production node server",
     "lint": "standard"
   }
 }
