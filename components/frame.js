@@ -1,6 +1,28 @@
 import React from 'react'
 import Link from 'next/link'
 
+class RandomDescription extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {}
+  }
+
+  componentDidMount() {
+    fetch('http://api.icndb.com/jokes/random')
+      .then((res) => res.json())
+      .then((result) => {
+        this.setState({
+          text: result.value.joke
+        })
+      })
+  }
+
+  render () {
+    const { text } = this.state
+    return <p>{ text || 'loading...'}</p>
+  }
+}
+
 export default ({ id }) => (
   <div className='photo'>
     <div className='image'>
@@ -9,10 +31,8 @@ export default ({ id }) => (
 
     <div className='sidebar'>
       <ul className='sidebarList'>
-        <li>
-          <Link><a href='/profile?id=nkzawa'>@nkzawa</a></Link>
-          - Great photo!
-        </li>
+        <h3>Description</h3>
+        <RandomDescription />
       </ul>
     </div>
 
@@ -47,7 +67,7 @@ export default ({ id }) => (
         height: 100%;
         text-align: left;
         box-sizing: border-box;
-        padding: 20px;
+        padding: 0 20px;
         font-family: Monaco;
         font-size: 11px;
       }
