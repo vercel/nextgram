@@ -2,23 +2,26 @@
   "name": "nextgram",
   "private": true,
   "dependencies": {
-    "express": "^4.15.2",
     "isomorphic-fetch": "^2.2.1",
-    "next": "^2.0.0-beta.36",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2"
-  },
-  "devDependencies": {
-    "babel-eslint": "7.0.0",
-    "standard": "8.4.0"
-  },
-  "standard": {
-    "parser": "babel-eslint"
+    "next": "^9.3.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "swr": "^0.2.0"
   },
   "scripts": {
-    "dev": "node server",
+    "dev": "next dev",
     "build": "next build",
-    "start": "NODE_ENV=production node server",
-    "lint": "standard"
+    "start": "next start"
+  },
+  "devDependencies": {
+    "husky": "^4.2.3",
+    "prettier": "2.0.2",
+    "pretty-quick": "^2.0.1",
+    "sass": "^1.26.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
   }
 }

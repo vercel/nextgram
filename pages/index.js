@@ -1,116 +1,75 @@
-import React from 'react'
-import Router from 'next/router'
-import Modal from '../components/modal'
-import 'isomorphic-fetch'
+import { getJSON } from "../utils/fetcher";
+import { useRouter } from "next/router";
+import Link from "next/link";
+import styles from "../styles/home.module.scss";
+import { useEffect, useCallback } from "react";
+import Modal from "../components/modal";
 
-export default class extends React.Component {
-  static async getInitialProps () {
-    return {
-      photos: await getGifNames(),
-    }
-  }
+export async function getStaticProps() {
+  const res = await getJSON(
+    `https://api.gfycat.com/v1/gfycats/trending?count=20`
+  );
 
-  constructor (props) {
-    super(props)
-    this.onKeyDown = this.onKeyDown.bind(this)
-  }
+  return {
+    props: {
+      photos: res.gfycats
+        .filter((i) => i.nsfw === "0")
+        .map(({ gfyName, width, height }) => ({ id: gfyName, width, height })),
+    },
+    revalidate: true,
+  };
+}
 
-  // handling escape close
-  componentDidMount () {
-    document.addEventListener('keydown', this.onKeyDown)
-  }
+export default function Home({ photos }) {
+  const router = useRouter();
+  const { photoId } = router.query;
 
-  componentWillUnmount () {
-    document.removeEventListener('keydown', this.onKeyDown)
-  }
+  const onDismiss = useCallback(() => {
+    if (photoId) router.back();
+  }, [photoId, router]);
 
-  onKeyDown (e) {
-    if (!this.props.url.query.photoId) return
-    if (e.keyCode === 27) {
-      this.props.url.back()
-    }
-  }
+  const onKeyDown = useCallback(
+    (e) => {
+      if (e.key === "Escape") onDismiss();
+    },
+    [onDismiss]
+  );
 
-  dismissModal () {
-    Router.push('/', '/', { shallow: true })
-  }
+  useEffect(() => {
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [onKeyDown]);
 
-  showPhoto (e, id) {
-    e.preventDefault()
-    Router.push(`/?photoId=${id}`, `/p/${id}`, { shallow: true })
-  }
-
-  render () {
-    const { url, photos } = this.props
-
-    return (
-      <div className='list'>
-        {
-          url.query.photoId &&
-            <Modal
-              id={url.query.photoId}
-              onDismiss={() => this.dismissModal()}
-            />
-        }
-        {
-          photos.map((id) => (
-            <div key={id} className='photo'>
-              <a
-                className='photoLink'
-                href={`/photo?id=${id}`}
-                onClick={(e) => this.showPhoto(e, id)}
-              >
-                <img src={`https://thumbs.gfycat.com/${id}-thumb360.jpg`} />
-              </a>
-            </div>
-          ))
-        }
-        <style jsx>{`
-          .list {
-            padding: 50px;
-            text-align: center;
-          }
-
-          .photo {
-            display: inline-block;
-          }
-
-          .photoLink {
-            color: #333;
-            verticalAlign: middle;
-            cursor: pointer;
-            background: #eee;
-            display: inline-block;
-            width: 250px;
-            height: 120px;
-            line-height: 120px;
-            margin: 10px;
-            border: 2px solid transparent;
-          }
-
-          .photoLink img {
-            width: 250px;
-          }
-
-          .photoLink:hover {
-            borderColor: blue;
-          }
-        `}</style>
+  return (
+    <main className={styles.container}>
+      <div>
+        <h1>NextGram</h1>
       </div>
-    )
-  }
-}
-
-
-async function getGithubProfileIds() {
-  const res = await fetch('https://api.github.com/users')
-  const result = await res.json()
-  return result.map((info) => info.id)
-}
-
-async function getGifNames() {
-  const res = await fetch('https://api.gfycat.com/v1/gfycats/trending?count=20')
-  const result = await res.json()
-
-  return result.gfycats.map((info) => info.gfyName)
+      {photoId && <Modal id={photoId} onDismiss={onDismiss} />}
+      <div className={styles.images}>
+        {photos.map(({ id, width, height }) => (
+          <div key={id} className={styles.imageContainer}>
+            <div key={id} className={styles.image}>
+              <Link
+                href={{ pathname: "/", query: { photoId: id } }}
+                as={`/p/${encodeURI(id)}`}
+                shallow
+                scroll={false}
+              >
+                <a>
+                  <div className={styles.imageWrapper}>
+                    <img
+                      width={width}
+                      height={height}
+                      src={`https://thumbs.gfycat.com/${id}-mobile.jpg`}
+                    />
+                  </div>
+                </a>
+              </Link>
+            </div>
+          </div>
+        ))}
+      </div>
+    </main>
+  );
 }
