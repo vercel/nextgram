@@ -1,6 +1,6 @@
 # NextGram
 
-This is a ample [Next.js by ZEIT](https://github.com/zeit/next.js) application
+This is a sample [Next.js by ZEIT](https://github.com/zeit/next.js) application
 that takes advantage of the advanced routing capabilities.
 
 In particular, note that the photo route can be attached to _two distinct_ components:
