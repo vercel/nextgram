@@ -1,27 +1,17 @@
 {
   "name": "nextgram",
   "private": true,
-  "dependencies": {
-    "isomorphic-fetch": "^2.2.1",
-    "next": "^9.3.4",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "swr": "^0.2.0"
-  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start"
   },
-  "devDependencies": {
-    "husky": "^4.2.3",
-    "prettier": "2.0.2",
-    "pretty-quick": "^2.0.1",
-    "sass": "^1.26.3"
+  "dependencies": {
+    "next": "latest",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
+  "devDependencies": {
+    "sass": "^1.49.9"
   }
 }

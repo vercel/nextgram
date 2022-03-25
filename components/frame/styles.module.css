@@ -8,17 +8,12 @@
 
 .image {
   float: left;
+  height: 600px;
   width: 600px;
   color: #fff;
   text-align: center;
   vertical-align: middle;
   font-size: 40px;
-}
-
-.image img {
-  padding: 0;
-  margin: 0;
-  width: 600px;
 }
 
 .sidebar {

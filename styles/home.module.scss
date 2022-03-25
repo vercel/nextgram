@@ -43,32 +43,6 @@
   }
 }
 
-.image {
-  margin: 1rem;
-}
-
 .imageWrapper {
-  position: relative;
-  overflow: hidden;
-  padding-top: 100%;
-
-  > img {
-    display: inline-block;
-    max-width: 100%;
-    object-fit: cover;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 100%;
-    height: 100%;
-    transform: translate(-50%, -50%);
-
-    @media (hover: hover) {
-      &:hover {
-        border-width: 1px;
-        border-style: solid;
-        border-color: blue;
-      }
-    }
-  }
+  margin: 1rem;
 }

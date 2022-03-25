@@ -1,8 +1,8 @@
-import React, { useCallback, useRef } from "react";
-import Photo from "../frame";
-import styles from "./styles.module.css";
+import { useCallback, useRef } from 'react';
+import Photo from '../frame';
+import styles from './styles.module.css';
 
-export default function Modal({ id, onDismiss }) {
+export default function Modal({ photo, onDismiss }) {
   const overlay = useRef();
   const wrapper = useRef();
 
@@ -18,7 +18,7 @@ export default function Modal({ id, onDismiss }) {
   return (
     <div ref={overlay} className={styles.overlay} onClick={onClick}>
       <div ref={wrapper} className={styles.wrapper}>
-        <Photo id={id} />
+        <Photo photo={photo} />
       </div>
     </div>
   );

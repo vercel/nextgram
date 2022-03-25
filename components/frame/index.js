@@ -1,32 +1,25 @@
-import React from "react";
-import useSWR from "swr";
-import { getJSON } from "../../utils/fetcher";
-import styles from "./styles.module.css";
+import Image from 'next/image';
+import styles from './styles.module.css';
 
-export default ({ id, joke: initialJoke }) => {
-  const { data: joke } = useSWR(
-    () =>
-      id && `https://api.icndb.com/jokes/random?id=${encodeURIComponent(id)}`,
-    getJSON,
-    {
-      revalidateOnFocus: false,
-      revalidateOnReconnect: false,
-      initialData: initialJoke,
-    }
-  );
-
+export default function Photo({ photo }) {
   return (
     <div className={styles.photo}>
       <div className={styles.image}>
-        <img src={`https://giant.gfycat.com/${id}.gif`} />
+        <Image
+          alt=""
+          src={photo.imageSrc}
+          height={600}
+          width={600}
+          objectFit="cover"
+        />
       </div>
 
       <div className={styles.sidebar}>
         <ul className={styles.sidebarList}>
-          <h3>Description</h3>
-          <p>{joke?.value?.joke ?? "Loading ..."}</p>
+          <h3>{photo.name}</h3>
+          <p>Taken by {photo.username}</p>
         </ul>
       </div>
     </div>
   );
-};
+}
