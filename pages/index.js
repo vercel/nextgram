@@ -1,10 +1,11 @@
-import { useEffect, useCallback } from 'react';
-import { useRouter } from 'next/router';
-import Link from 'next/link';
-import Image from 'next/image';
-import styles from '../styles/home.module.scss';
-import Modal from '../components/modal';
-import swagPhotos from '../photos';
+import { useEffect, useCallback } from "react";
+import { useRouter } from "next/router";
+import Link from "next/link";
+import Image from "next/image";
+import styles from "../styles/home.module.scss";
+import Modal from "../components/modal";
+import swagPhotos from "../photos";
+import BlurImage from "../components/BlurImage";
 
 export function getStaticProps() {
   return { props: { photos: swagPhotos } };
@@ -21,14 +22,14 @@ export default function Home({ photos }) {
 
   const onKeyDown = useCallback(
     (e) => {
-      if (e.key === 'Escape') onDismiss();
+      if (e.key === "Escape") onDismiss();
     },
     [onDismiss]
   );
 
   useEffect(() => {
-    document.addEventListener('keydown', onKeyDown);
-    return () => document.removeEventListener('keydown', onKeyDown);
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
   }, [onKeyDown]);
 
   return (
@@ -42,13 +43,13 @@ export default function Home({ photos }) {
           <div key={id} className={styles.imageContainer}>
             <div key={id} className={styles.imageWrapper}>
               <Link
-                href={{ pathname: '/', query: { photoId: id } }}
+                href={{ pathname: "/", query: { photoId: id } }}
                 as={`/p/${encodeURI(id)}`}
                 shallow
                 scroll={false}
               >
                 <a>
-                  <Image
+                  <BlurImage
                     alt=""
                     src={imageSrc}
                     height={500}
