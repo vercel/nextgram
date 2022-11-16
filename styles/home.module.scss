@@ -45,4 +45,9 @@
 
 .imageWrapper {
   margin: 1rem;
+
+  img {
+    object-fit: cover;
+    width: 100%;
+  }
 }

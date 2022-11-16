@@ -10,7 +10,6 @@ export default function Photo({ photo }) {
           src={photo.imageSrc}
           height={600}
           width={600}
-          objectFit="cover"
         />
       </div>
 

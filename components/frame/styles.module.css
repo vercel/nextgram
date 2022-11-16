@@ -16,6 +16,10 @@
   font-size: 40px;
 }
 
+.image img {
+  object-fit: cover;
+}
+
 .sidebar {
   float: right;
   background: #fff;
