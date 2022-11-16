@@ -48,15 +48,12 @@ export default function Home({ photos }) {
                 shallow
                 scroll={false}
               >
-                <a>
                   <BlurImage
                     alt=""
                     src={imageSrc}
                     height={500}
                     width={500}
-                    objectFit="cover"
                   />
-                </a>
               </Link>
             </div>
           </div>
