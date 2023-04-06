@@ -1,7 +1,7 @@
 import { useEffect, useCallback } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import styles from "../styles/home.module.scss";
 import Modal from "../components/modal";
 import swagPhotos from "../photos";
