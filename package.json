@@ -8,9 +8,9 @@
   },
   "dependencies": {
     "clsx": "^1.1.1",
-    "next": "latest",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "next": "13.3.1-canary.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "sass": "^1.49.9"
