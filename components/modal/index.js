@@ -1,10 +1,16 @@
-import { useCallback, useRef } from 'react';
-import Photo from '../frame';
-import styles from './styles.module.css';
+"use client";
+import { useCallback, useRef, useEffect } from "react";
+import styles from "./styles.module.css";
+import { useRouter } from "next/navigation";
 
-export default function Modal({ photo, onDismiss }) {
+export default function Modal({ children }) {
   const overlay = useRef();
   const wrapper = useRef();
+  const router = useRouter();
+
+  const onDismiss = useCallback(() => {
+    router.back();
+  }, [router]);
 
   const onClick = useCallback(
     (e) => {
@@ -15,10 +21,22 @@ export default function Modal({ photo, onDismiss }) {
     [onDismiss, overlay, wrapper]
   );
 
+  const onKeyDown = useCallback(
+    (e) => {
+      if (e.key === "Escape") onDismiss();
+    },
+    [onDismiss]
+  );
+
+  useEffect(() => {
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [onKeyDown]);
+
   return (
     <div ref={overlay} className={styles.overlay} onClick={onClick}>
       <div ref={wrapper} className={styles.wrapper}>
-        <Photo photo={photo} />
+        {children}
       </div>
     </div>
   );
