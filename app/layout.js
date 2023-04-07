@@ -1,6 +1,7 @@
 import "../styles/reboot.css";
 
 export const metadata = {
+  title: "NextGram",
   metadataBase: new URL("https://nextgram.vercel.app"),
 };
 
