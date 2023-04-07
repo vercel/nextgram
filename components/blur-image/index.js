@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/legacy/image";
 import styles from "./styles.module.css";
-import { useState } from "react";
 import cn from "clsx";
 
 export default function BlurImage(props) {

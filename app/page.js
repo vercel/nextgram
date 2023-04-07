@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styles from "../styles/home.module.scss";
 import swagPhotos from "../photos";
-import BlurImage from "../components/BlurImage";
+import BlurImage from "../components/blur-image";
 
 export default function Home() {
   const photos = swagPhotos;
