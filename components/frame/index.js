@@ -1,25 +1,20 @@
-import Image from "next/legacy/image";
-import styles from "./styles.module.css";
+import Image from "next/image";
 
 export default function Photo({ photo }) {
   return (
-    <div className={styles.photo}>
-      <div className={styles.image}>
-        <Image
-          alt=""
-          src={photo.imageSrc}
-          height={600}
-          width={600}
-          objectFit="cover"
-        />
-      </div>
+    <>
+      <Image
+        alt=""
+        src={photo.imageSrc}
+        height={600}
+        width={600}
+        className="w-full object-cover aspect-square col-span-2"
+      />
 
-      <div className={styles.sidebar}>
-        <ul className={styles.sidebarList}>
-          <h3>{photo.name}</h3>
-          <p>Taken by {photo.username}</p>
-        </ul>
+      <div className="bg-white p-4 px-6">
+        <h3>{photo.name}</h3>
+        <p>Taken by {photo.username}</p>
       </div>
-    </div>
+    </>
   );
 }

@@ -1,4 +1,4 @@
-import "../styles/reboot.css";
+import "./global.css";
 
 export const metadata = {
   metadataBase: new URL("https://nextgram.vercel.app"),
