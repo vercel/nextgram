@@ -7,12 +7,16 @@
     "start": "next start"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.13",
     "clsx": "^1.1.1",
     "next": "13.3.1-canary.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "sass": "^1.49.9"
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.21",
+    "sass": "^1.49.9",
+    "tailwindcss": "^3.3.1"
   }
 }

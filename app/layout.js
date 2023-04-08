@@ -1,4 +1,4 @@
-import "../styles/reboot.css";
+import "./global.css";
 import GithubCorner from "../components/github-corner";
 
 export const metadata = {

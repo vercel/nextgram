@@ -1,31 +1,24 @@
 import Link from "next/link";
-import styles from "../styles/home.module.scss";
 import swagPhotos from "../photos";
-import BlurImage from "../components/blur-image";
+import Image from "next/image";
 
 export default function Home() {
   const photos = swagPhotos;
 
   return (
-    <main className={styles.container}>
-      <div>
-        <h1>NextGram</h1>
-      </div>
-      <div className={styles.images}>
+    <main className="container mx-auto">
+      <h1 className="text-center text-4xl font-bold m-10">NextGram</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 auto-rows-max	 gap-6 m-10">
         {photos.map(({ id, imageSrc }) => (
-          <div key={id} className={styles.imageContainer}>
-            <div key={id} className={styles.imageWrapper}>
-              <Link href={`/photos/${id}`}>
-                <BlurImage
-                  alt=""
-                  src={imageSrc}
-                  height={500}
-                  width={500}
-                  objectFit="cover"
-                />
-              </Link>
-            </div>
-          </div>
+          <Link key={id} href={`/photos/${id}`}>
+            <Image
+              alt=""
+              src={imageSrc}
+              height={500}
+              width={500}
+              className="w-full object-cover aspect-square"
+            />
+          </Link>
         ))}
       </div>
     </main>
