@@ -1,5 +1,5 @@
-import "../styles/reboot.css";
-import GithubCorner from "../components/github-corner";
+import "../../styles/reboot.css";
+import GithubCorner from "../../components/github-corner";
 
 export const metadata = {
   title: "NextGram",

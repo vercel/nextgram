@@ -1,6 +1,6 @@
 import React from "react";
-import Photo from "../../../components/frame";
-import swagPhotos from "../../../photos";
+import Photo from "../../../../components/frame";
+import swagPhotos from "../../../../photos";
 import { permalink, wrap } from "./styles.module.css";
 
 export default function PhotoPage({ params: { id } }) {
