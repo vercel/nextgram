@@ -1,5 +1,5 @@
 import Link from "next/link";
-import swagPhotos from "../photos";
+import swagPhotos from "../../photos";
 import Image from "next/image";
 
 export default function Home() {

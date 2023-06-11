@@ -1,6 +1,17 @@
 import Image from "next/image";
-
-export default function Photo({ photo }) {
+interface PhotoProps {
+  photo:
+    | {
+        id: string;
+        name: string;
+        href: string;
+        username: string;
+        imageSrc: string;
+      }
+    | undefined;
+}
+export default function Photo({ photo }: PhotoProps) {
+  if (!photo) return null;
   return (
     <>
       <Image
