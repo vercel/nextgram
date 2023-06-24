@@ -1,4 +1,12 @@
-const photos = [
+export type Photo = {
+  id: string
+  name: string
+  href: string
+  username: string
+  imageSrc: string
+}
+
+const photos: Photo[] = [
   {
     id: '1',
     name: 'Kevin Canlas',
