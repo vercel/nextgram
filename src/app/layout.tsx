@@ -1,4 +1,4 @@
-import './global.css'
+import './globals.css'
 import GithubCorner from '../components/github-corner/GithubCorner'
 
 export const metadata = {
@@ -8,7 +8,10 @@ export const metadata = {
   metadataBase: new URL('https://nextgram.vercel.app'),
 }
 
-export default function Layout(props: { children: React.ReactNode, modal: React.ReactNode }) {
+const RootLayout = (props: {
+  children: React.ReactNode
+  modal: React.ReactNode
+}) => {
   return (
     <html>
       <body>
@@ -19,3 +22,5 @@ export default function Layout(props: { children: React.ReactNode, modal: React.
     </html>
   )
 }
+
+export default RootLayout

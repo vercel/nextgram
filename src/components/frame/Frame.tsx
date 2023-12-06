@@ -1,7 +1,7 @@
 import Image from 'next/image'
-import { Photo } from '../../photos'
+import type { Photo } from '../../photos'
 
-export default function Frame({ photo }: { photo: Photo }) {
+const Frame = ({ photo }: { photo: Photo }) => {
   return (
     <>
       <Image
@@ -9,7 +9,7 @@ export default function Frame({ photo }: { photo: Photo }) {
         src={photo.imageSrc}
         height={600}
         width={600}
-        className="w-full object-cover aspect-square col-span-2"
+        className="col-span-2 aspect-square w-full object-cover"
       />
 
       <div className="bg-white p-4 px-6">
@@ -19,3 +19,5 @@ export default function Frame({ photo }: { photo: Photo }) {
     </>
   )
 }
+
+export default Frame

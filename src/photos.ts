@@ -44,10 +44,10 @@ const photos: Photo[] = [
   },
   {
     id: '6',
-    name: 'lafond.eth',
-    href: 'https://twitter.com/laf0nd/status/1464640065615929346',
-    username: '@laf0nd',
-    imageSrc: 'https://pbs.twimg.com/media/FFNyYEAXsAMdOhV?format=jpg',
+    name: 'Guillermo Rauch',
+    href: 'https://twitter.com/rauchg/status/1730042192826364276',
+    username: '@rauchg',
+    imageSrc: 'https://pbs.twimg.com/media/GAJYM9nb0AA2QVg?format=jpg',
   },
   {
     id: '7',
@@ -70,6 +70,6 @@ const photos: Photo[] = [
     username: '@matiasbaldanza',
     imageSrc: 'https://pbs.twimg.com/media/E374pyaWEAMCT2R?format=jpg',
   },
-];
+]
 
-export default photos;
+export default photos

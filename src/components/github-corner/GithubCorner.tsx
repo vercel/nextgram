@@ -1,6 +1,6 @@
 import styles from './styles.module.css'
 
-export default function GithubCorner() {
+const GithubCorner = () => {
   return (
     <a
       href="https://github.com/vercel/nextgram"
@@ -41,3 +41,5 @@ export default function GithubCorner() {
     </a>
   )
 }
+
+export default GithubCorner

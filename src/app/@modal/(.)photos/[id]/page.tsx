@@ -1,8 +1,13 @@
 import Frame from '../../../../components/frame/Frame'
 import Modal from '../../../../components/modal/Modal'
-import swagPhotos, { Photo } from '../../../../photos'
+import type { Photo } from '../../../../photos'
+import swagPhotos from '../../../../photos'
 
-export default function PhotoModal({ params: { id: photoId } }: { params: { id: string } }) {
+const PhotoModal = ({
+  params: { id: photoId },
+}: {
+  params: { id: string }
+}) => {
   const photos = swagPhotos
   const photo: Photo = photos.find((p) => p.id === photoId)!
 
@@ -12,3 +17,5 @@ export default function PhotoModal({ params: { id: photoId } }: { params: { id: 
     </Modal>
   )
 }
+
+export default PhotoModal
