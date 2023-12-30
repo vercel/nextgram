@@ -4,3 +4,4 @@
 yarn-error.log*
 yarn-debug.log*
 npm-debug.log*
+next-env.d.ts
