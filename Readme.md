@@ -7,8 +7,6 @@ The photo route can be attached to _two distinct_ components:
 1. When navigating within the application, it is rendered as a modal
 1. When the page is refreshed, it is rendered as a standalone page
 
-# Try it Yourself
-
 ## Demo
 
 https://nextgram.vercel.app
