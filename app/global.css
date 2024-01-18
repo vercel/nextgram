@@ -26,7 +26,7 @@ html {
   width: 80%;
   max-width: 500px;
   height: auto;
-  max-height: 80%;
+  max-height: 500px;
   border: none;
   border-radius: 12px;
   background-color: white;
