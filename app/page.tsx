@@ -2,6 +2,7 @@
 "use client";
 
 import { useState, FormEvent } from "react";
+import Link from "next/link";
 
 type Post = {
   id: number;
@@ -103,6 +104,22 @@ export default function HomePage() {
             上のフォームから投稿すると、下のタイムラインに追加されます。
             データはこのページを開いているあいだだけ有効な、お試しSNSです。
           </p>
+          <Link
+            href="/jinsei-generator"
+            style={{
+              display: "inline-block",
+              marginTop: "12px",
+              padding: "8px 16px",
+              borderRadius: "999px",
+              backgroundColor: "#8b5cf6",
+              color: "#ffffff",
+              fontSize: "13px",
+              fontWeight: 500,
+              textDecoration: "none",
+            }}
+          >
+            ✨ 人生論ジェネレーター
+          </Link>
         </header>
 
         {/* 投稿フォーム */}
